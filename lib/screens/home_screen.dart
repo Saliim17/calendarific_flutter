@@ -2,18 +2,13 @@ import 'package:calendarific/screens/france/france_screen.dart';
 import 'package:calendarific/screens/spain/spain_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
-import '../controllers/api_controller.dart';
 
 class HomeScreen extends StatefulWidget {
 
   const HomeScreen({Key? key}) : super(key: key);
 
-  static ApiController getApiController() {
-    return Get.put(ApiController());
-  }
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 
@@ -38,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      const MainFranceScreen(),
-      const SpainScreen(),
+      const FranceScreen(),
+      SpainScreen(),
     ];
   }
   List<PersistentBottomNavBarItem> _navBarsItems() {

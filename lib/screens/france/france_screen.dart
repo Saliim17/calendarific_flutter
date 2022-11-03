@@ -2,24 +2,27 @@ import 'package:calendarific/screens/france/france_body_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
 import '../../controllers/api_controller.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 
-class MainFranceScreen extends StatefulWidget {
-  const MainFranceScreen({Key? key}) : super(key: key);
+class FranceScreen extends StatefulWidget {
+
+  static ApiController apiController = ApiController();
+  static ApiController getApiController() => apiController;
+
+  const FranceScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainFranceScreen> createState() => _MainFranceScreenState();
+  State<FranceScreen> createState() => _FranceScreenState();
 }
 
-class _MainFranceScreenState extends State<MainFranceScreen> {
+class _FranceScreenState extends State<FranceScreen> {
 
-  ApiController apiController = Get.put(ApiController());
+  ApiController apiController = FranceScreen.getApiController();
 
-  // use this controller to get what the usd typed
+  // use this controller to get what the user typed
   final _textController = TextEditingController();
 
   // store user text input into variable

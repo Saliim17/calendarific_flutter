@@ -1,14 +1,17 @@
-import 'package:calendarific/screens/france/france_body_screen.dart';
+import 'package:calendarific/screens/spain/spain_body_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
 import '../../controllers/api_controller.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 
 class SpainScreen extends StatefulWidget {
+
+  static ApiController apiController = ApiController();
+  static ApiController getApiController() => apiController;
+
   const SpainScreen({Key? key}) : super(key: key);
 
   @override
@@ -17,9 +20,8 @@ class SpainScreen extends StatefulWidget {
 
 class _SpainScreenState extends State<SpainScreen> {
 
-  ApiController apiController = Get.put(ApiController());
-
-  // use this controller to get what the usd typed
+  ApiController apiController = SpainScreen.getApiController();
+  // use this controller to get what the user typed
   final _textController = TextEditingController();
 
   // store user text input into variable
@@ -139,7 +141,7 @@ class _SpainScreenState extends State<SpainScreen> {
           ),
           //showing the body
           const Expanded(
-              child: FranceBodyScreen()),
+              child: SpainBodyScreen()),
           SizedBox(height: Dimensions.screenHeight*0.01,)
         ],
       ),

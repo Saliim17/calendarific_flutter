@@ -1,9 +1,9 @@
 import 'package:calendarific/controllers/api_controller.dart';
+import 'package:calendarific/screens/spain/spain_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 import '../../size_config.dart';
-import '../home_screen.dart';
 
 class SpainBodyScreen extends StatefulWidget {
   const SpainBodyScreen({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class SpainBodyScreen extends StatefulWidget {
 
 class _SpainBodyScreenState extends State<SpainBodyScreen> {
 
-  ApiController apiController = HomeScreen.getApiController();
+  ApiController apiController = SpainScreen.getApiController();
 
   @override
   Widget build(BuildContext context) {

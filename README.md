@@ -2,7 +2,7 @@
 ## _Consuming a RESTful API with_ 
 
 
-[![N|Solid](https://i.imgur.com/uaRBLLo.png)
+[![N|Solid](https://i.imgur.com/D006WqG.png)
 
 
 

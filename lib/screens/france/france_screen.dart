@@ -1,0 +1,94 @@
+import 'package:calendarific/screens/france/main_france_screen.dart';
+import 'package:calendarific/screens/spain/spain_screen.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+
+class FranceScreen extends StatefulWidget {
+
+  const FranceScreen({Key? key}) : super(key: key);
+
+  @override
+  State<FranceScreen> createState() => _FranceScreenState();
+
+}
+
+class _FranceScreenState extends State<FranceScreen> {
+  int _selectedIndex = 0;
+  late PersistentTabController _controller;
+
+  List pages=[
+    /*MainFoodPage(),*/
+    Container(child: Center(child: Text("Next page"))),
+    /*CartHistory(),
+    AccountPage(),*/
+  ];
+
+  void onTapNav(int index){
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = PersistentTabController(initialIndex: 0);
+
+  }
+
+  List<Widget> _buildScreens() {
+    return [
+      MainFranceScreen(),
+      SpainScreen(),
+    ];
+  }
+  List<PersistentBottomNavBarItem> _navBarsItems() {
+    return [
+      PersistentBottomNavBarItem(
+        icon: const Icon(CupertinoIcons.flag),
+        title: "France",
+        activeColorPrimary: CupertinoColors.activeBlue,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
+      ),
+      PersistentBottomNavBarItem(
+        icon: const Icon(CupertinoIcons.flag_fill),
+        title: "Spain",
+        activeColorPrimary: CupertinoColors.activeGreen,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
+      ),
+    ];
+  }
+  @override
+  Widget build(BuildContext context) {
+    return PersistentTabView(
+      context,
+      controller: _controller,
+      screens: _buildScreens(),
+      items: _navBarsItems(),
+      confineInSafeArea: true,
+      backgroundColor: Colors.white, // Default is Colors.white.
+      handleAndroidBackButtonPress: true, // Default is true.
+      resizeToAvoidBottomInset: true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
+      stateManagement: true, // Default is true.
+      hideNavigationBarWhenKeyboardShows: true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        colorBehindNavBar: Colors.white,
+      ),
+      popAllScreensOnTapOfSelectedTab: true,
+      popActionScreens: PopActionScreensType.all,
+      itemAnimationProperties: const ItemAnimationProperties( // Navigation Bar's items animation properties.
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
+      ),
+      screenTransitionAnimation: const ScreenTransitionAnimation( // Screen transition animation on change of selected tab.
+        animateTabTransition: true,
+        curve: Curves.ease,
+        duration: Duration(milliseconds: 200),
+      ),
+      navBarStyle: NavBarStyle.style2, // Choose the nav bar style with this property.
+    );
+  }
+}

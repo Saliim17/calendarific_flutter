@@ -6,7 +6,7 @@
 
 [![N|Solid](https://i.imgur.com/8sS4zBN.png)
 
-The app consists of two screens with almost the same content. You need to retrieve the data from the public holiday calendar API which can be found here: https://calendarific.com/api-documentation.
+The app consists of two screens with almost same data from the public holiday calendar API which can be found here: https://calendarific.com/api-documentation.
 
 The app consists of two screens: 
 - Screen 1 (FRANCE holidays):

@@ -1,9 +1,9 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
-import '../france_binding.dart';
-import '../screens/france/france_screen.dart';
+import '../dependencies/api_bindings.dart';
+import '../screens/home_screen.dart';
 
-class RouterHelper{
+class RouterHelper {
 
   static const String initial = "/";
   static String getInitial()=> initial;
@@ -12,7 +12,7 @@ class RouterHelper{
 
     GetPage(
       name: initial,
-      page: () => const FranceScreen(),
-      binding: FranceScreenBinding()),
+      page: () => const HomeScreen(),
+      binding: ApiBinding()),
   ];
 }

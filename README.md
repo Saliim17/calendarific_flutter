@@ -4,7 +4,7 @@
 
 [![N|Solid](https://i.imgur.com/D006WqG.png)
 
-[![N|Solid](https://i.imgur.com/nn6FLDi.png)
+[![N|Solid](https://i.imgur.com/8sS4zBN.png)
 
 The app consists of two screens with almost the same content. You need to retrieve the data from the public holiday calendar API which can be found here: https://calendarific.com/api-documentation.
 

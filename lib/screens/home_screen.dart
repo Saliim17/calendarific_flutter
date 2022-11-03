@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _buildScreens() {
     return [
       const FranceScreen(),
-      SpainScreen(),
+      const SpainScreen(),
     ];
   }
   List<PersistentBottomNavBarItem> _navBarsItems() {

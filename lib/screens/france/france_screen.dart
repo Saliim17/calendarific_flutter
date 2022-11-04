@@ -27,23 +27,32 @@ class _FranceScreenState extends State<FranceScreen> {
 
   // store user text input into variable
   String userInput = "";
-  
+
+  //setting up new build widget fetching data on initState
   _loadResource (BuildContext context) {
     
     if (userInput == "")  {
+
       apiController.setYear("2022");
+
     } else {
+
       apiController.setYear(userInput);
+
     }
+
     apiController.setCountry("FR");
     apiController.fetchData();
+
   }
   
   @override
   void initState() {
+
     super.initState();
     WidgetsBinding.instance
         .addPostFrameCallback((_) =>_loadResource(context));
+
   }
 
   @override
@@ -57,81 +66,116 @@ class _FranceScreenState extends State<FranceScreen> {
     ));
 
     return Scaffold(
+
       body: Column(
+
           children: [
+
             //showing the header
             Container(
+
               color: CupertinoColors.activeBlue,
+
               margin: EdgeInsets.only(
                   top: Dimensions.height45, bottom: Dimensions.height15
               ),
+
               padding: EdgeInsets.only(
                   top: Dimensions.width10,
                   left: Dimensions.width20,
                   right: Dimensions.width20
               ),
+
               child: Row(
+
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+
                     BigText(
                       fontWeight: FontWeight.w900,
                       text: "CALENDARIFIC.",
                     ),
+
                   ]
               ),
             ),
+
             Container(
                 margin: EdgeInsets.all(Dimensions.height10),
                 child: BigText(text: "Holidays in France!", fontWeight: FontWeight.w700)
             ),
+
             Padding(
+
               padding: EdgeInsets.only(top: Dimensions.height15),
+
               child: Container(
                 width: Dimensions.screenWidth * 0.9,
                 height: Dimensions.screenHeight / 14,
+
                 decoration: BoxDecoration(
                   color: const Color.fromRGBO(240, 240, 240, 1),
                   borderRadius: BorderRadius.circular(20),
                 ),
+
                 child: Row(
                   children: [
+
                     InkWell(
                         onTap: () {
+
+                          //fetching new data
                           setState(() {
+
                             userInput = _textController.text;
                             apiController.setYear(userInput);
                             apiController.fetchData();
+
                           });
                         },
+
                         child: Padding(
                           padding: EdgeInsets.all(Dimensions.width20),
+
                           child: Icon(
                             Icons.search,
                             size: Dimensions.iconSize24,
                           ),
                         )),
+
                     Expanded(
                       child: TextField(
                         onTap: () {
+
+                          //fetching new data
                           setState(() {
+
                             userInput = _textController.text;
                             apiController.setYear(userInput);
                             apiController.fetchData();
+
                           });
                         },
+
                         textInputAction: TextInputAction.search,
+
                         controller: _textController,
+
                           decoration: InputDecoration(
+
                             hintText: "Select the year!",
                             hintStyle: TextStyle(
                               color: Colors.grey,
                               fontSize: Dimensions.font16,
                             ),
+
                             border: InputBorder.none,
+
                             suffixIcon: IconButton(
                               onPressed: () {
                                 _textController.clear();
                               },
+
                               icon: const Icon(Icons.clear)
                             )
                           )),
@@ -140,10 +184,10 @@ class _FranceScreenState extends State<FranceScreen> {
                 ),
               ),
             ),
-            //showing the body
-            const Expanded(
-                child: FranceBodyScreen()),
-            SizedBox(height: Dimensions.screenHeight*0.01,)
+
+            //showing the body screen
+            const Expanded(child: FranceBodyScreen()),
+            SizedBox(height: Dimensions.screenHeight*0.01)
           ],
         ),
       );

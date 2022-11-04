@@ -25,7 +25,7 @@ class ApiController extends GetxController {
 
     //secret api_key & base_url is loaded from .env file
     String key = dotenv.get("API_KEY", fallback: "");
-    String base_url = dotenv.get("BASE_URL", fallback: "");
+    String baseUrl = dotenv.get("BASE_URL", fallback: "");
 
     try{
 
@@ -33,7 +33,7 @@ class ApiController extends GetxController {
       isLoading(true);
 
       http.Response response = await http.get(Uri.tryParse(
-          "$base_url?api_key=$key&country=${getCountry()}&year=${getYear()}")!);
+          "$baseUrl?api_key=$key&country=${getCountry()}&year=${getYear()}")!);
 
       if(response.statusCode == 200){
 

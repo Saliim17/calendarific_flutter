@@ -23,15 +23,15 @@ class ApiController extends GetxController {
 
   fetchData() async {
 
-    //secret api_key is loaded from .env file
+    //secret api_key & base_url is loaded from .env file
     String key = dotenv.get("API_KEY", fallback: "");
     String baseUrl = dotenv.get("BASE_URL", fallback: "");
 
     try{
+
       // data is loading = true
       isLoading(true);
 
-      //TODO api_key needs to be a env variable!!
       http.Response response = await http.get(Uri.tryParse(
           "$baseUrl?api_key=$key&country=${getCountry()}&year=${getYear()}")!);
 

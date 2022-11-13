@@ -27,6 +27,7 @@ class _SpainScreenState extends State<SpainScreen> {
   // store user text input into variable
   String userInput = "";
 
+  //setting up new build widget fetching data on initState
   _loadResource (BuildContext context) {
 
     if (userInput == "")  {

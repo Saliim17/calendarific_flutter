@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../controllers/api_controller.dart';
-import '../../utils/dimensions.dart';
+import '../../size_config.dart';
 import '../../widgets/big_text.dart';
 
 class SpainScreen extends StatefulWidget {
@@ -55,6 +55,9 @@ class _SpainScreenState extends State<SpainScreen> {
       //set brightness for icons, like dark background light icons
     ));
 
+    SizeConfig().init(context);
+
+
     return Scaffold(
       body: Column(
         children: [
@@ -62,12 +65,12 @@ class _SpainScreenState extends State<SpainScreen> {
           Container(
             color: CupertinoColors.destructiveRed,
             margin: EdgeInsets.only(
-                top: Dimensions.height45, bottom: Dimensions.height15
+                top: SizeConfig.height45, bottom: SizeConfig.height15
             ),
             padding: EdgeInsets.only(
-                top: Dimensions.width10,
-                left: Dimensions.width20,
-                right: Dimensions.width20
+                top: SizeConfig.width10,
+                left: SizeConfig.width20,
+                right: SizeConfig.width20
             ),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -80,14 +83,14 @@ class _SpainScreenState extends State<SpainScreen> {
             ),
           ),
           Container(
-              margin: EdgeInsets.all(Dimensions.height10),
+              margin: EdgeInsets.all(SizeConfig.height10),
               child: BigText(text: "Holidays in Spain!", fontWeight: FontWeight.w700)
           ),
           Padding(
-            padding: EdgeInsets.only(top: Dimensions.height15),
+            padding: EdgeInsets.only(top: SizeConfig.height15),
             child: Container(
-              width: Dimensions.screenWidth * 0.9,
-              height: Dimensions.screenHeight / 14,
+              width: SizeConfig.screenWidth! * 0.9,
+              height: SizeConfig.screenHeight! / 14,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(240, 240, 240, 1),
                 borderRadius: BorderRadius.circular(20),
@@ -103,10 +106,10 @@ class _SpainScreenState extends State<SpainScreen> {
                         });
                       },
                       child: Padding(
-                        padding: EdgeInsets.all(Dimensions.width20),
+                        padding: EdgeInsets.all(SizeConfig.width20),
                         child: Icon(
                           Icons.search,
-                          size: Dimensions.iconSize24,
+                          size: SizeConfig.iconSize24,
                         ),
                       )),
                   Expanded(
@@ -124,7 +127,7 @@ class _SpainScreenState extends State<SpainScreen> {
                             hintText: "Select the year!",
                             hintStyle: TextStyle(
                               color: Colors.grey,
-                              fontSize: Dimensions.font16,
+                              fontSize: SizeConfig.font16,
                             ),
                             border: InputBorder.none,
                             suffixIcon: IconButton(
@@ -142,7 +145,7 @@ class _SpainScreenState extends State<SpainScreen> {
           //showing the body
           const Expanded(
               child: SpainBodyScreen()),
-          SizedBox(height: Dimensions.screenHeight*0.01,)
+          SizedBox(height: SizeConfig.screenHeight! * 0.01)
         ],
       ),
     );

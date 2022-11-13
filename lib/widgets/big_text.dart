@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:calendarific/utils/dimensions.dart';
+
+import '../size_config.dart';
 
 class BigText extends StatelessWidget {
   Color? color;
@@ -18,6 +19,9 @@ class BigText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    SizeConfig().init(context);
+
     return Text(
       text,
       maxLines: 1,
@@ -25,7 +29,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
           fontFamily: 'Montserrat',
           color: color,
-          fontSize: size == 0 ? Dimensions.font20 : size,
+          fontSize: size == 0 ? SizeConfig.font20 : size,
           fontWeight: fontWeight),
     );
   }
